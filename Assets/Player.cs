@@ -19,10 +19,6 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         m_Movement = Input.GetAxisRaw("Horizontal");
-
-        if(m_Score % 50 == 0 && m_Score != 0) {
-            m_Cam.RandomiseColours();
-        }
 	}
 
     private void FixedUpdate()
@@ -32,12 +28,17 @@ public class Player : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void AddScore(int value)
     {
         m_Score = m_Score + value;
+
+        if (m_Score % 50 == 0 && m_Score != 0)
+        {
+            m_Cam.RandomiseColours();
+        }
     }
 
     public int GetScore()
