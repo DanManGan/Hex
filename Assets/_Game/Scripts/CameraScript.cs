@@ -9,6 +9,7 @@ public class CameraScript : MonoBehaviour {
     public float duration = 3.0f;
 
     Camera m_Cam;
+    int count = 0;
 
     // Use this for initialization
     void Start()
@@ -32,7 +33,15 @@ public class CameraScript : MonoBehaviour {
 
     public void RandomiseColours()
     {
-        color1 = new Color(Random.value, Random.value, Random.value, 1.0f);
-        color2 = new Color(Random.value, Random.value, Random.value, 1.0f);
+        if (count % 2 == 0)
+        {
+            color1 = new Color(Random.value, Random.value, Random.value, 1.0f);
+        }
+        else
+        {
+            color2 = new Color(Random.value, Random.value, Random.value, 1.0f);
+        }
+
+        count++;
     }
 }
